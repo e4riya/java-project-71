@@ -14,7 +14,7 @@ public class App implements Callable<Integer> {
     private String firstFilePath;
     @Parameters(index = "1", description = "path to second file", paramLabel = "filepath2")
     private String secondFilepath;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }
@@ -25,4 +25,5 @@ public class App implements Callable<Integer> {
     public Integer call(){
         return 0;
     }
+
 }
