@@ -1,0 +1,11 @@
+{"version": 2, "width": 228, "height": 12, "timestamp": 1745604628, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}
+[0.012371, "o", "\u001b[?2004h \u001b[1;34mapp\u001b[m\u001b[32m (main)\u001b[00m $ "]
+[0.811149, "o", "\u001b[7m./build/install/app/bin/app file1.json file2.json\u001b[27m\r\n\r"]
+[2.144534, "o", "\u001b[A\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C./build/install/app/bin/app file1.json file2.json\r\n\r\u001b[A\r\n\u001b[?2004l\r"]
+[2.408986, "o", "{\r\n  - follow: false\r\n    host: hexlet.io\r\n  - proxy: 123.234.53.22\r\n  - timeout: 50\r\n  + timeout: 20\r\n  + verbose: true\r\n}\r\n"]
+[2.419003, "o", "\u001b[?2004h \u001b[1;34mapp\u001b[m\u001b[32m (main)\u001b[00m $ "]
+[5.148286, "o", "e"]
+[5.323501, "o", "x"]
+[5.490484, "o", "i"]
+[5.597523, "o", "t"]
+[5.911751, "o", "\r\n\u001b[?2004l\rexit\r\n"]

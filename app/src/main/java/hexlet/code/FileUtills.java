@@ -5,9 +5,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class FileUtills {
-    public static String readFile(String path) throws Exception{
+    public static String readFile(String path) throws Exception {
         Path filePath = Paths.get(path);
-        if(!Files.exists(filePath)){
+        if (!Files.exists(filePath)) {
             throw new Exception("File '" + path + "' does not exist");
         }
         String content = Files.readString(filePath);
