@@ -15,10 +15,13 @@ class DifferTest {
         String path2 = "file2.json";
         String expected = readFixture("expected");
 
-        String actual = Differ.generate(ParserJSON.getData(getFixturePath(path1).toString()), ParserJSON.getData(getFixturePath(path2).toString()));
+        String actual = Differ.generate(ParserJSON.getData(getFixturePath(path1).toString()),
+                                        ParserJSON.getData(getFixturePath(path2).toString())
+        );
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
+
     private static Path getFixturePath(String fileName) {
         return Paths.get("src", "test", "resources", fileName)
                     .toAbsolutePath().normalize();
