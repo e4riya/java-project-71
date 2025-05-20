@@ -11,7 +11,7 @@ import java.util.Map;
 public class Parser {
     public static Map<String, String> getData(String content) throws Exception {
         ObjectMapper mapper = null;
-        if(content.endsWith(".json")) {
+        if (content.endsWith(".json")) {
             mapper = new ObjectMapper(new JsonFactory());
         } else if (content.endsWith(".yml") || content.endsWith(".yaml")) {
             mapper = new ObjectMapper(new YAMLFactory());
