@@ -1,11 +1,12 @@
 package hexlet.code;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DifferTest {
 
@@ -15,11 +16,17 @@ class DifferTest {
         String path2 = "file2.json";
         String expected = readFixture("expected");
 
-        String actual = Differ.generate(ParserJSON.getData(getFixturePath(path1).toString()),
-                                        ParserJSON.getData(getFixturePath(path2).toString())
+        String actual = Differ.generate(Parser.getData(getFixturePath(path1).toString()),
+                                        Parser.getData(getFixturePath(path2).toString())
         );
+        assertEquals(expected, actual);
 
-        Assertions.assertEquals(expected, actual);
+        path1 = "file1.yml";
+        path2 = "file2.yml";
+        actual = Differ.generate(Parser.getData(getFixturePath(path1).toString()),
+                                        Parser.getData(getFixturePath(path2).toString())
+        );
+        assertEquals(expected, actual);
     }
 
     private static Path getFixturePath(String fileName) {

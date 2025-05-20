@@ -16,7 +16,7 @@ public class App implements Callable<Integer> {
     @Parameters(index = "1", description = "path to second file", paramLabel = "filepath2")
     private String secondFilepath;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }
@@ -29,7 +29,7 @@ public class App implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         System.out.println(
-            Differ.generate(ParserJSON.getData(firstFilePath), ParserJSON.getData(secondFilepath))
+            Differ.generate(Parser.getData(firstFilePath), Parser.getData(secondFilepath))
         );
         return 0;
     }
