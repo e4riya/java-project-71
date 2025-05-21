@@ -12,21 +12,40 @@ class DifferTest {
 
     @Test
     void generate() throws Exception {
-        String path1 = "file1.json";
-        String path2 = "file2.json";
-        String expected = readFixture("expected");
+        String path1 = "file1.yml";
+        String path2 = "file2.yml";
+        String expected = readFixture("expectedStylish");
 
         String actual = Differ.generate(Parser.getData(getFixturePath(path1).toString()),
-                                        Parser.getData(getFixturePath(path2).toString())
-        );
+                                        Parser.getData(getFixturePath(path2).toString()
+                                        ), "stylish");
         assertEquals(expected, actual);
 
-        path1 = "file1.yml";
-        path2 = "file2.yml";
+        path1 = "file1.json";
+        path2 = "file2.json";
+        expected = readFixture("expectedForNesting");
         actual = Differ.generate(Parser.getData(getFixturePath(path1).toString()),
-                                        Parser.getData(getFixturePath(path2).toString())
-        );
+                                 Parser.getData(getFixturePath(path2).toString()
+                                 ), "stylish");
         assertEquals(expected, actual);
+
+        path1 = "file1.json";
+        path2 = "file2.json";
+        expected = readFixture("expectedPlain");
+        actual = Differ.generate(Parser.getData(getFixturePath(path1).toString()),
+                                 Parser.getData(getFixturePath(path2).toString()
+                                 ), "plain");
+        assertEquals(expected, actual);
+
+        path1 = "file1.json";
+        path2 = "file2.json";
+        expected = readFixture("expectedForJSON");
+        actual = Differ.generate(Parser.getData(getFixturePath(path1).toString()),
+                                 Parser.getData(getFixturePath(path2).toString()
+                                 ), "json");
+        assertEquals(expected, actual);
+
+
     }
 
     private static Path getFixturePath(String fileName) {

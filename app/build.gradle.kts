@@ -24,6 +24,8 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-annotations:2.18.3")
     implementation("com.fasterxml.jackson.core:jackson-core:2.18.3")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.3")
+    compileOnly("org.projectlombok:lombok:1.18.36")
+    annotationProcessor("org.projectlombok:lombok:1.18.30")
 }
 
 tasks.test {

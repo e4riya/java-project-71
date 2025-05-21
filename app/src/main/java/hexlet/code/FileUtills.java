@@ -10,7 +10,7 @@ public class FileUtills {
         if (!Files.exists(filePath)) {
             throw new Exception("File '" + path + "' does not exist");
         }
-        String content = Files.readString(filePath);
+        String content = Files.readString(filePath).trim();
         return content;
     }
 }
