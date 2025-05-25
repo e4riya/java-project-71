@@ -1,0 +1,5 @@
+path1,path2,expectedPath,format
+file1.yml,file2.yml,expectedStylish,stylish
+file1.json,file2.json,expectedForNesting,stylish
+file1.json,file2.json,expectedPlain,plain
+file1.json,file2.json,expectedForJSON,json

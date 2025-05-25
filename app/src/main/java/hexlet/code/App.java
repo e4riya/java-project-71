@@ -29,7 +29,10 @@ public class App implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         System.out.println(
-            Differ.generate(Parser.getData(firstFilePath), Parser.getData(secondFilepath), format)
+            Differ.generate(
+                Parser.getData(FileUtills.readFile(firstFilePath)), Parser.getData(FileUtills.readFile(secondFilepath)),
+                format
+            )
         );
         return 0;
     }

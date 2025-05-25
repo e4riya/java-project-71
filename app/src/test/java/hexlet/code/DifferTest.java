@@ -1,6 +1,7 @@
 package hexlet.code;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,42 +11,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DifferTest {
 
-    @Test
-    void generate() throws Exception {
-        String path1 = "file1.yml";
-        String path2 = "file2.yml";
-        String expected = readFixture("expectedStylish");
+    @ParameterizedTest
+    @CsvFileSource(resources = "/argumentsForDifferTest.csv", numLinesToSkip = 1)
+    void generate(String path1, String path2, String expectedPath, String format) throws Exception {
+        String expected = readFixture(expectedPath);
 
-        String actual = Differ.generate(Parser.getData(getFixturePath(path1).toString()),
-                                        Parser.getData(getFixturePath(path2).toString()
-                                        ), "stylish");
+        String actual = Differ.generate(
+            Parser.getData(FileUtills.readFile(getFixturePath(path1).toString())),
+            Parser.getData(FileUtills.readFile(getFixturePath(path2).toString())
+            ), format
+        );
         assertEquals(expected, actual);
-
-        path1 = "file1.json";
-        path2 = "file2.json";
-        expected = readFixture("expectedForNesting");
-        actual = Differ.generate(Parser.getData(getFixturePath(path1).toString()),
-                                 Parser.getData(getFixturePath(path2).toString()
-                                 ), "stylish");
-        assertEquals(expected, actual);
-
-        path1 = "file1.json";
-        path2 = "file2.json";
-        expected = readFixture("expectedPlain");
-        actual = Differ.generate(Parser.getData(getFixturePath(path1).toString()),
-                                 Parser.getData(getFixturePath(path2).toString()
-                                 ), "plain");
-        assertEquals(expected, actual);
-
-        path1 = "file1.json";
-        path2 = "file2.json";
-        expected = readFixture("expectedForJSON");
-        actual = Differ.generate(Parser.getData(getFixturePath(path1).toString()),
-                                 Parser.getData(getFixturePath(path2).toString()
-                                 ), "json");
-        assertEquals(expected, actual);
-
-
     }
 
     private static Path getFixturePath(String fileName) {

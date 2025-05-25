@@ -9,23 +9,23 @@ public class StylishFormatter implements CanFormat {
     public String format(ArrayList<DiffEntry> diffs) {
         StringBuilder result = new StringBuilder();
         for (DiffEntry entry : diffs) {
-            switch (entry.getStatus()) {
+            switch (entry.status()) {
                 case STAYED:
-                    result.append("    " + entry.getKey() + ": " + entry.getOldValue() + "\n");
+                    result.append("    " + entry.key() + ": " + entry.oldValue() + "\n");
                     break;
                 case UPDATED:
                     result.append(
-                        "  - " + entry.getKey() + ": " + entry.getOldValue() + "\n" + "  + " + entry.getKey()
-                            + ": " + entry.getNewValue() + "\n");
+                        "  - " + entry.key() + ": " + entry.oldValue() + "\n" + "  + " + entry.key()
+                            + ": " + entry.newValue() + "\n");
                     break;
                 case DELETED:
-                    result.append("  - " + entry.getKey() + ": " + entry.getOldValue() + "\n");
+                    result.append("  - " + entry.key() + ": " + entry.oldValue() + "\n");
                     break;
                 case CREATED:
-                    result.append("  + " + entry.getKey() + ": " + entry.getNewValue() + "\n");
+                    result.append("  + " + entry.key() + ": " + entry.newValue() + "\n");
                     break;
                 default:
-                    throw new IllegalStateException("Unexpected value: " + entry.getStatus());
+                    throw new IllegalStateException("Unexpected value: " + entry.status());
             }
         }
         result.append("}");
