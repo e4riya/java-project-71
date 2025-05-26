@@ -4,7 +4,21 @@ import hexlet.code.DiffEntry;
 
 import java.util.ArrayList;
 
+/**
+ * Formatter that outputs differences in stylish (tree-like) format.
+ * Example:
+ * {
+ *     key1: value1
+ *   - key2: value2
+ *   + key2: value3
+ * }
+ */
 public class StylishFormatter implements CanFormat {
+    /**
+     * Formats the differences in stylish format.
+     * @param diffs List of differences between files
+     * @return Formatted string representing the differences
+     */
     @Override
     public String format(ArrayList<DiffEntry> diffs) {
         StringBuilder result = new StringBuilder();
