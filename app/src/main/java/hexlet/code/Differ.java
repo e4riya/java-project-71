@@ -34,4 +34,7 @@ public class Differ {
         }
         return Formater.getFormatter(format).format(diffs);
     }
+    public static String generate(String firstPath, String secondPath) throws Exception {
+        return generate(firstPath, secondPath, "stylish");
+    }
 }
