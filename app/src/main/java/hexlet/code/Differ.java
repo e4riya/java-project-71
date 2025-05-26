@@ -8,7 +8,9 @@ import java.util.TreeSet;
 
 public class Differ {
 
-    public static String generate(Map<String, Object> first, Map<String, Object> second, String format) {
+    public static String generate(String firstPath, String secondPath, String format) throws Exception {
+        Map<String, Object> first = Parser.getData(FileUtills.readFile(firstPath));
+        Map<String, Object> second = Parser.getData(FileUtills.readFile(secondPath));
         Set<String> keys = new TreeSet<>(first.keySet());
         keys.addAll(second.keySet());
         ArrayList<DiffEntry> diffs = new ArrayList<>();

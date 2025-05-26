@@ -16,11 +16,7 @@ class DifferTest {
     void generate(String path1, String path2, String expectedPath, String format) throws Exception {
         String expected = readFixture(expectedPath);
 
-        String actual = Differ.generate(
-            Parser.getData(FileUtills.readFile(getFixturePath(path1).toString())),
-            Parser.getData(FileUtills.readFile(getFixturePath(path2).toString())
-            ), format
-        );
+        String actual = Differ.generate(getFixturePath(path1).toString(), getFixturePath(path2).toString(), format);
         assertEquals(expected, actual);
     }
 
